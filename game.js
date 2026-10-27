@@ -1,6 +1,6 @@
 /**
- * 再刷一下。微信小游戏入口，开发者工具直接打开，不用构建。
+ * 再刷一下。微信小游戏入口。require 走 CommonJS，直接 new 构造函数。
  */
-const main = require('./js/main');
+const Main = require('./js/main.js');
 
-main.boot();
+new Main();

@@ -4,7 +4,7 @@
  * 昵称必须玩家自己点「署名」。接口缺失或拒绝都不挡开局。
  */
 
-const storage = require('./storage');
+const storage = require('./storage.js');
 
 function getWx() {
   return typeof wx !== 'undefined' ? wx : null;

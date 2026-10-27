@@ -1,9 +1,9 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
-const input = require('../js/input');
-const levels = require('../js/levels');
-const storage = require('../js/storage');
+const input = require('../js/input.js');
+const levels = require('../js/levels.js');
+const storage = require('../js/storage.js');
 
 test('swipe classification ignores tiny and ambiguous moves', function () {
   assert.equal(input.classifySwipe(0, -80), 'up');
@@ -206,8 +206,10 @@ test('boot survives a wx mock', function () {
   };
 
   try {
-    const main = require('../js/main');
-    main.boot();
+    const Main = require('../js/main.js');
+    assert.equal(typeof Main, 'function');
+    assert.equal(Main.default, undefined);
+    new Main();
     assert.equal(privacyChecked, true);
     assert.equal(JSON.parse(mem[storage.SESSION_KEY]).code, 'mock-login-code');
     const saved = JSON.parse(mem[storage.STORAGE_KEY]);

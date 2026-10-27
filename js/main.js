@@ -3,11 +3,11 @@
  * 过关后最大的按钮是「再刷一下」，再来一局同一关。
  */
 
-const input = require('./input');
-const levels = require('./levels');
-const storage = require('./storage');
-const userApi = require('./user');
-const render = require('./render');
+const input = require('./input.js');
+const levels = require('./levels.js');
+const storage = require('./storage.js');
+const userApi = require('./user.js');
+const render = require('./render.js');
 
 const FLY_MS = 160;
 const DIE_MS = 280;
@@ -70,7 +70,7 @@ function createState(progress) {
   };
 }
 
-function boot() {
+function Main() {
   if (typeof wx === 'undefined' || typeof wx.createCanvas !== 'function') {
     console.error('再刷一下需要在微信小游戏环境运行');
     return;
@@ -415,6 +415,4 @@ function boot() {
   startLoop();
 }
 
-module.exports = {
-  boot: boot,
-};
+module.exports = Main;
